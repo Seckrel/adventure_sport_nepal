@@ -2,22 +2,17 @@ import {
     AppBar,
     Toolbar,
     IconButton,
-    Typography
+    Typography,
+    Fade
 } from '@material-ui/core';
-import { createStyles, makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useState } from 'react';
 import NavigationDrawer from './components/NavigationDrawer';
-
-const useStyles = makeStyles(() =>
-    createStyles({
-        menuButton: {
-            marginLeft: "auto"
-        }
-    }))
+import { useStyles } from './style';
 
 
 export default function Header() {
+    const fadeTransitionMiliSecond = 350;
     const classes = useStyles();
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const handleDrawerToggle = (): void => {
@@ -30,23 +25,26 @@ export default function Header() {
                     <Typography variant="h5" color="inherit">
                         Adventure
                     </Typography>
-                    {!isDrawerOpen
-                        ? (
-                            <IconButton
-                                edge="start"
-                                color="inherit"
-                                aria-label="menu"
-                                className={classes.menuButton}
-                                onClick={handleDrawerToggle}
-                            >
-                                <MenuIcon />
-                            </IconButton>
-                        ): null}
+                    <Fade
+                        in={!isDrawerOpen}
+                        timeout={fadeTransitionMiliSecond}
+                    >
+                        <IconButton
+                            edge="start"
+                            color="inherit"
+                            aria-label="menu"
+                            className={classes.menuButton}
+                            onClick={handleDrawerToggle}
+                        >
+                            <MenuIcon fontSize={"large"} />
+                        </IconButton>
+                    </Fade>
                 </Toolbar>
             </AppBar>
             <NavigationDrawer
                 isDrawerOpen={isDrawerOpen}
                 handleDrawerToggle={handleDrawerToggle}
+                drawerTransitionMiliSecond={fadeTransitionMiliSecond}
             />
         </div>
     )

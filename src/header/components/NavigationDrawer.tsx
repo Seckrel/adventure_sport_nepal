@@ -9,53 +9,20 @@ import MailIcon from '@material-ui/icons/Mail';
 import ListItemText from '@material-ui/core/ListItemText';
 import CloseIcon from '@material-ui/icons/Close';
 import { Box, IconButton } from '@material-ui/core';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { useStyles } from '../style';
 
-const drawerWidth = 240;
-
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        root: {
-            display: 'flex',
-        },
-        drawer: {
-            [theme.breakpoints.up('sm')]: {
-                width: drawerWidth,
-                flexShrink: 0,
-            },
-        },
-        appBar: {
-            [theme.breakpoints.up('sm')]: {
-                width: `calc(100% - ${drawerWidth}px)`,
-                marginLeft: drawerWidth,
-            },
-        },
-        menuButton: {
-            marginRight: theme.spacing(2),
-            [theme.breakpoints.up('sm')]: {
-                display: 'none',
-            },
-        },
-        // necessary for content to be below app bar
-        toolbar: theme.mixins.toolbar,
-        drawerPaper: {
-            width: drawerWidth,
-        },
-        content: {
-            flexGrow: 1,
-            padding: theme.spacing(3),
-        },
-    }),
-);
 
 interface Props {
     isDrawerOpen: boolean;
     handleDrawerToggle: any;
+    drawerTransitionMiliSecond: number;
 }
 
-
 export default function NavigationDrawer(props: Props) {
-    const { isDrawerOpen, handleDrawerToggle } = props;
+    const {
+        isDrawerOpen,
+        handleDrawerToggle,
+        drawerTransitionMiliSecond } = props;
     const classes = useStyles();
 
     const drawer = (
@@ -111,8 +78,9 @@ export default function NavigationDrawer(props: Props) {
                         paper: classes.drawerPaper,
                     }}
                     ModalProps={{
-                        keepMounted: true, // Better open performance on mobile.
+                        keepMounted: true,
                     }}
+                    transitionDuration={drawerTransitionMiliSecond}
                 >
                     {drawer}
                 </Drawer>
