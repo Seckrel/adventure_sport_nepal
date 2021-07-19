@@ -7,7 +7,8 @@ import MoreIcon from '@material-ui/icons/More';
 const useStyles = makeStyles(() =>
     createStyles({
         img: {
-            height: "100%"
+            height: "100%",
+            width: "100%"
         },
         box: {
             position: "relative"

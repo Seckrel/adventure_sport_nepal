@@ -2,8 +2,8 @@ import LandingShowCase from "./components/LandingShowCase";
 import Packages from './components/PackagesComponent';
 import { Fragment } from 'react';
 
-import AdventureMediaCard from "./header/AdventureComponent";
-import Introduction from "./header/IntroductionComponent";
+import AdventureMediaCard from "./components/AdventureComponent";
+import Introduction from './components/IntroductionComponent';
 
 
 export default function Home() {

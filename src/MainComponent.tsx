@@ -4,11 +4,8 @@ import {
 } from "@material-ui/core/styles";
 import { useMemo } from 'react';
 import Header from './header/HeaderComponent';
-<<<<<<< HEAD
 import Body from './BodyComponent';
 
-=======
->>>>>>> mockup_sulav
 
 // declare module '@material-ui/core/styles/createTheme' {
 //     interface Palette {
@@ -75,12 +72,7 @@ export default function Main() {
     return (
         <ThemeProvider theme={theme}>
             <Header />
-<<<<<<< HEAD
             <Body />
-=======
-            
-
->>>>>>> mockup_sulav
         </ThemeProvider>
     )
 }
