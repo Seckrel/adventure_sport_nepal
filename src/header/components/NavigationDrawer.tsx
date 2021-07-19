@@ -18,6 +18,11 @@ interface Props {
     drawerTransitionMiliSecond: number;
 }
 
+/*
+    TODO: Change const drawer to acordion for nested nav
+    when number of pages are fixed
+*/
+
 export default function NavigationDrawer(props: Props) {
     const {
         isDrawerOpen,
