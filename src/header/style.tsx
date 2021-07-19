@@ -22,5 +22,8 @@ export const useStyles = makeStyles((theme: Theme) =>
         menuButton: {
             marginLeft: "auto"
         },
+        appBar: {
+            backgroundColor: trigger => trigger ? theme.palette.primary.main : "transparent",
+        }
     }),
 );

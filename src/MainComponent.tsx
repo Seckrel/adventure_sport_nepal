@@ -1,11 +1,10 @@
 import {
     createTheme,
     ThemeProvider,
-    useTheme
 } from "@material-ui/core/styles";
-import Grey from '@material-ui/core/colors/grey';
 import { useMemo } from 'react';
 import Header from './header/HeaderComponent';
+import Body from './BodyComponent';
 
 
 // declare module '@material-ui/core/styles/createTheme' {
@@ -35,7 +34,6 @@ import Header from './header/HeaderComponent';
 
 
 export default function Main() {
-    const defaultTheme = useTheme();
     const theme = useMemo(
         () => createTheme({
             palette: {
@@ -54,16 +52,27 @@ export default function Main() {
             typography: {
                 fontFamily: `'Chivo', '- apple - system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen',
             'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-                'sans- serif'`
+                'sans- serif'`,
+                h1: {
+                    fontFamily: `"Playfair Display", serif`
+                },
+                h2: {
+                    fontFamily: `"Playfair Display", serif`
+                },
+                h3: {
+                    fontFamily: `"Playfair Display", serif`
+                },
+                h4: {
+                    fontFamily: `"Playfair Display", serif`
+                }
             }
         }), []
     );
 
     return (
         <ThemeProvider theme={theme}>
-
             <Header />
-
+            <Body />
         </ThemeProvider>
     )
 }
