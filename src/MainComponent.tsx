@@ -1,12 +1,11 @@
 import {
     createTheme,
     ThemeProvider,
-    useTheme
 } from "@material-ui/core/styles";
-import Grey from '@material-ui/core/colors/grey';
 import { useMemo } from 'react';
 import Header from './header/HeaderComponent';
-
+import Introduction from "./header/IntroductionComponent";
+import AdventureMediaCard from "./header/AdventureComponent";
 
 // declare module '@material-ui/core/styles/createTheme' {
 //     interface Palette {
@@ -35,7 +34,6 @@ import Header from './header/HeaderComponent';
 
 
 export default function Main() {
-    const defaultTheme = useTheme();
     const theme = useMemo(
         () => createTheme({
             palette: {
@@ -63,6 +61,8 @@ export default function Main() {
         <ThemeProvider theme={theme}>
 
             <Header />
+            <Introduction />
+            <AdventureMediaCard />
 
         </ThemeProvider>
     )
