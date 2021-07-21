@@ -9,7 +9,11 @@ import Introduction from './components/IntroductionComponent';
 export default function Home() {
     return (
         <Fragment>
-            <LandingShowCase />
+            <LandingShowCase
+                // imageSrc={""}
+                // infoText={""}
+                // learnMore={true}
+            />
             <Introduction />
             <Packages />
             <AdventureMediaCard />

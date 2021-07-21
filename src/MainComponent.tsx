@@ -4,7 +4,7 @@ import {
 } from "@material-ui/core/styles";
 import { useMemo } from 'react';
 import Header from './header/HeaderComponent';
-import Body from './BodyComponent';
+import Body from "./BodyComponent";
 
 
 // declare module '@material-ui/core/styles/createTheme' {
