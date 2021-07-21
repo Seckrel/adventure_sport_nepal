@@ -59,7 +59,10 @@ const CreateMediaCards = (props: any) => {
                             </CardActionArea>
                             <CardActions>
                                 <Button size="small" color="primary">
-                                    <Paper><Typography variant="subtitle1">Learn more</Typography></Paper>
+                                    <Paper elevation={0}>
+                                        <Typography variant="subtitle1">Learn more
+                                        </Typography>
+                                    </Paper>
                                 </Button>
                             </CardActions>
                         </Card>

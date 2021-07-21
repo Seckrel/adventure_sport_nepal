@@ -1,4 +1,4 @@
-import LandingShowCase from "./components/LandingShowCase";
+import LandingShowCase from '../../recycle/LandingShowCase';
 import Packages from './components/PackagesComponent';
 import { Fragment } from 'react';
 

@@ -39,10 +39,7 @@ export default function Header() {
     });
     const classes = useStyles(trigger);
 
-    // const trigger = useScrollTrigger({
-    //     disableHysteresis: true,
-    //     threshold: 0,
-    // });
+    
     const handleDrawerToggle = (): void => {
         setIsDrawerOpen(!isDrawerOpen);
     };
@@ -51,7 +48,7 @@ export default function Header() {
             <ElevationScroll trigger={trigger}>
                 <AppBar className={classes.appBar}>
                     <Toolbar variant="regular" component={"nav"}>
-                        <Typography variant="h5" color="inherit">
+                        <Typography variant="h4" color="inherit">
                             Adventure
                         </Typography>
                         <Fade

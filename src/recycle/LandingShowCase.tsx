@@ -16,7 +16,8 @@ const useStyles = makeStyles(() =>
         overlappingDiv: {
             position: 'absolute',
             top: "50%",
-            transform: "translateY(-50%)"
+            transform: "translateY(-50%)",
+            width: "50%"
         },
         paper: {
             background: "transparent",
@@ -55,7 +56,7 @@ export default function LandingShowCase() {
             />
 
             <Box px={2} className={classes.overlappingDiv}>
-                <Paper elevation={3} className={classes.paper}>
+                <Paper elevation={20} className={classes.paper}>
                     <Grid container spacing={3}>
                         <Grid item xs={12}>
                             <Typography

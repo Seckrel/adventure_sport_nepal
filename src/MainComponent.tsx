@@ -37,22 +37,23 @@ export default function Main() {
     const theme = useMemo(
         () => createTheme({
             palette: {
-                type: 'dark',
-                primary: {
-                    main: "#424242",
-                    light: "#6d6d6d",
-                    dark: "#1b1b1b"
-                },
-                secondary: {
-                    main: "#fafafa",
-                    light: "#ffffff",
-                    dark: "#c7c7c7"
-                }
+                type: 'light',
+                // primary: {
+                //     main: "#424242",
+                //     light: "#6d6d6d",
+                //     dark: "#1b1b1b"
+                // },
+                // secondary: {
+                //     main: "#fafafa",P
+                //     light: "#ffffff",
+                //     dark: "#c7c7c7"
+                // }
             },
             typography: {
                 fontFamily: `'Chivo', '- apple - system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen',
             'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
                 'sans- serif'`,
+                fontWeightRegular: 700,
                 h1: {
                     fontFamily: `"Playfair Display", serif`
                 },
@@ -63,7 +64,8 @@ export default function Main() {
                     fontFamily: `"Playfair Display", serif`
                 },
                 h4: {
-                    fontFamily: `"Playfair Display", serif`
+                    fontFamily: `"Playfair Display", serif`,
+                    fontWeight: 900,
                 }
             }
         }), []
