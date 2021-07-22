@@ -4,6 +4,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import DropDownList from './DropDownComponent';
 import { useState } from 'react';
+import { AboutUs, Expeditions } from './MenuItems';
+import { Fragment } from 'react';
+import Box from '@material-ui/core/Box';;
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -16,7 +19,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
         listItem: {
             width: 'max-content',
-            paddingTop: '10px'
         },
 
         hoverTransition: {
@@ -47,167 +49,69 @@ const CustomListItemText = ({ text, classes }: CustomListItemTextProps) => {
 
 export default function DesktopNavigation() {
     const classes = useStyles();
-    const [drop, setDrop] = useState(null);
+    const [isOpen, setIsOpen] = useState(false);
+    const [expand, setExpand] = useState([]);
 
     const handleMouseEnter = (props: any) => {
-        setDrop(props.name)
+        setIsOpen(true)
+        setExpand(props)
+        console.log("point 1", props)
     }
     const handleMouseLeave = () => {
-        setDrop(null)
-
-        console.log("leave")
+        setIsOpen(false)
+        setExpand([])
     }
 
     return (
-        <List className={classes.root}>
-            <ListItem
-                button
-                className={classes.hoverTransition}
-            >
-                <CustomListItemText text="HOME" classes={classes} />
-            </ListItem>
-            <ListItem
-                button
-                className={classes.hoverTransition}
-                onMouseEnter={() => handleMouseEnter(AboutUs)}
-                onMouseLeave={() => handleMouseLeave()}
-            >
-                <CustomListItemText text="EXPEDITION" classes={classes} />
-            </ListItem>
-            <ListItem
-                button
-                className={classes.hoverTransition}
-                onMouseEnter={() => handleMouseEnter(AboutUs)}
-                onMouseLeave={() => handleMouseLeave()}
-            >
-                <CustomListItemText text="ABOUT US" classes={classes} />
-                {drop === "About Us"
+        <Fragment>
+            <Box onMouseLeave={() => handleMouseLeave()}>
+                <List className={classes.root}>
+                    <ListItem
+                        button
+                        className={classes.hoverTransition}
+                        onMouseEnter={() => handleMouseLeave()}
+                        onMouseLeave={() => handleMouseLeave()}
+                    >
+                        <CustomListItemText text="HOME" classes={classes} />
+                    </ListItem>
+                    <ListItem
+                        button
+                        className={classes.hoverTransition}
+                        onMouseEnter={() => handleMouseEnter(Expeditions)}
+                    //onMouseLeave={() => handleMouseLeave()}
+                    >
+                        <CustomListItemText text="EXPEDITIONS" classes={classes} />
+                    </ListItem>
+                    <ListItem
+                        button
+                        className={classes.hoverTransition}
+                        onMouseEnter={() => handleMouseEnter(AboutUs)}
+                    //onMouseLeave={() => handleMouseLeave()}
+                    >
+                        <CustomListItemText text="ABOUT US" classes={classes} />
+                    </ListItem>
+                    <ListItem
+                        button
+                        className={classes.hoverTransition}
+                        onMouseEnter={() => handleMouseLeave()}
+                        onMouseLeave={() => handleMouseLeave()}
+                    >
+                        <CustomListItemText text="FAQ" classes={classes} />
+                    </ListItem>
+                    <ListItem
+                        button
+                        className={classes.hoverTransition}
+                        onMouseEnter={() => handleMouseLeave()}
+                        onMouseLeave={() => handleMouseLeave()}
+                    >
+                        <CustomListItemText text="ENQUIRE" classes={classes} />
+                    </ListItem>
+                </List>
+                {isOpen === true && expand
                     ? (
-                        <DropDownList list={AboutUs} />
+                        <DropDownList items={expand} />
                     ) : null}
-            </ListItem>
-            <ListItem
-                button
-                className={classes.hoverTransition}
-            >
-                <CustomListItemText text="FAQ" classes={classes} />
-            </ListItem>
-            <ListItem
-                button
-                className={classes.hoverTransition}
-            >
-                <CustomListItemText text="ENQUIRE" classes={classes} />
-            </ListItem>
-        </List>
+            </Box>
+        </Fragment>
     );
 }
-
-
-const Expendition = {
-    name: "Expendition",
-    prev: null,
-    items: [
-        {
-            name: "Combo",
-            items: [],
-            href: ''
-        },
-        {
-            name: "Ski",
-            items: [
-                {
-                    name: "Ski in Puthan Hinchuli (7426m)",
-                    href: '',
-                    items: []
-                },
-                {
-                    name: "Ski in  Mera Peak (6654m)",
-                    href: '',
-                    items: []
-                },
-                {
-                    name: "Ski in Bhrikuti Peak (6361m)",
-                    href: '',
-                    items: []
-                },
-                {
-                    name: "Ski in Ramdung Go Peak (5925m)",
-                    href: '',
-                    items: []
-                },
-                {
-                    name: "Ski in Kalinchowk (3842m)",
-                    href: '',
-                    items: []
-                }
-            ]
-        },
-        {
-            name: "mountainering",
-            items: [
-                {
-                    name: "Chulu West Peak Climbing (6419m)",
-                    items: []
-                },
-                {
-                    name: "Island Peak Climbing (6189m)",
-                    items: []
-                },
-                {
-                    name: "Manaslu Peak Climbing (8163m)",
-                    items: []
-                },
-                {
-                    name: "Mera Peak Peak Climbing (6461m)",
-                    items: []
-                },
-                {
-                    name: "Yala Peak Climbing (5520m)",
-                    items: []
-                },
-            ]
-        },
-        {
-            name: "Trekking",
-            items: [
-                {
-                    name: "Annapurna Circuit Trek",
-                    items: []
-                },
-                {
-                    name: "Dhaulagiri Circuit Trek",
-                    items: []
-                },
-                {
-                    name: "Everest Circuit Trek",
-                    items: []
-                },
-                {
-                    name: "Guerilla Circuit Trek",
-                    items: []
-                },
-                {
-                    name: "Manaslu Circuit Trek",
-                    items: []
-                },
-            ]
-        }
-    ]
-};
-
-const AboutUs = {
-    name: "About Us",
-    prev: null,
-    items: [
-        {
-            name: "Our Team",
-            href: '',
-            items: []
-        },
-        {
-            name: "Saftey",
-            href: '',
-            items: []
-        },
-    ]
-};
