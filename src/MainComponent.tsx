@@ -1,6 +1,7 @@
 import {
     createTheme,
     ThemeProvider,
+    SimplePaletteColorOptions
 } from "@material-ui/core/styles";
 import { useMemo } from 'react';
 import Header from './header/HeaderComponent';
@@ -38,6 +39,9 @@ export default function Main() {
         () => createTheme({
             palette: {
                 type: 'light',
+                grey: {
+                    "A200": "#1e1e1e"
+                }
             },
             typography: {
                 fontFamily: `'Chivo', '- apple - system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen',
