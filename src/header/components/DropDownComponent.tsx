@@ -53,7 +53,6 @@ export default function DropDownList(props: any) {
     const handleMouseEnter = (props: any) => {
         setIsOpen(true)
         setExpand(props)
-        console.log("point 3", props)
     }
     const handleMouseLeave = () => {
         setIsOpen(false)
@@ -65,8 +64,7 @@ export default function DropDownList(props: any) {
             <Grid
                 container
                 style={{
-                    backgroundColor: "black",
-                    height: "500px"
+                    minHeight: "300px"
                 }}
                 onMouseLeave={() => handleMouseLeave()}
             >
@@ -86,7 +84,6 @@ export default function DropDownList(props: any) {
                                         className={classes.hoverTransition}
                                         onMouseEnter={() => handleMouseEnter(item.items)}
                                     >
-                                        {console.log("point 2", item)}
                                         <CustomListItemText text={item.name} classes={classes} />
                                     </ListItem>
                                 ) : (
@@ -94,9 +91,7 @@ export default function DropDownList(props: any) {
                                         button
                                         className={classes.hoverTransition}
                                         onMouseEnter={() => handleMouseLeave()}
-                                        onMouseLeave={() => handleMouseLeave()}
                                     >
-                                        {console.log("point 4", item)}
                                         <CustomListItemText text={item.name} classes={classes} />
                                     </ListItem>
                                 )
@@ -106,11 +101,10 @@ export default function DropDownList(props: any) {
 
                 {isOpen === true && expand
                     ? (
-                        <Grid item xs={3}>
+                        <Grid item xs={6}>
                             <DropDownList items={expand} />
                         </Grid>
                     ) : null}
-
             </Grid>
         </Fragment>
     )

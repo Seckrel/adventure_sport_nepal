@@ -55,7 +55,6 @@ export default function DesktopNavigation() {
     const handleMouseEnter = (props: any) => {
         setIsOpen(true)
         setExpand(props)
-        console.log("point 1", props)
     }
     const handleMouseLeave = () => {
         setIsOpen(false)
@@ -70,7 +69,6 @@ export default function DesktopNavigation() {
                         button
                         className={classes.hoverTransition}
                         onMouseEnter={() => handleMouseLeave()}
-                        onMouseLeave={() => handleMouseLeave()}
                     >
                         <CustomListItemText text="HOME" classes={classes} />
                     </ListItem>
@@ -78,7 +76,6 @@ export default function DesktopNavigation() {
                         button
                         className={classes.hoverTransition}
                         onMouseEnter={() => handleMouseEnter(Expeditions)}
-                    //onMouseLeave={() => handleMouseLeave()}
                     >
                         <CustomListItemText text="EXPEDITIONS" classes={classes} />
                     </ListItem>
@@ -86,7 +83,6 @@ export default function DesktopNavigation() {
                         button
                         className={classes.hoverTransition}
                         onMouseEnter={() => handleMouseEnter(AboutUs)}
-                    //onMouseLeave={() => handleMouseLeave()}
                     >
                         <CustomListItemText text="ABOUT US" classes={classes} />
                     </ListItem>
@@ -94,7 +90,6 @@ export default function DesktopNavigation() {
                         button
                         className={classes.hoverTransition}
                         onMouseEnter={() => handleMouseLeave()}
-                        onMouseLeave={() => handleMouseLeave()}
                     >
                         <CustomListItemText text="FAQ" classes={classes} />
                     </ListItem>
@@ -102,14 +97,25 @@ export default function DesktopNavigation() {
                         button
                         className={classes.hoverTransition}
                         onMouseEnter={() => handleMouseLeave()}
-                        onMouseLeave={() => handleMouseLeave()}
                     >
                         <CustomListItemText text="ENQUIRE" classes={classes} />
                     </ListItem>
                 </List>
                 {isOpen === true && expand
                     ? (
-                        <DropDownList items={expand} />
+                        <Box
+                            style={{
+                                minHeight: "300px",
+                                position: "absolute",
+                                left: "0",
+                                float: "left",
+                                backgroundColor: "blue",
+                                width: "100vw",
+                                opacity: 0.7
+                            }}
+                        >
+                            <DropDownList items={expand} />
+                        </Box>
                     ) : null}
             </Box>
         </Fragment>
