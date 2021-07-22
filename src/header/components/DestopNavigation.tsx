@@ -2,7 +2,7 @@ import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import DropDownList from './DrawerDataComponent';
+import DropDownList from './DropDownComponent';
 import { useState } from 'react';
 
 const useStyles = makeStyles((theme: Theme) =>
