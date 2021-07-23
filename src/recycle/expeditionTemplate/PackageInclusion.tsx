@@ -17,32 +17,6 @@ import ClearTwoToneIcon from '@material-ui/icons/ClearTwoTone';
 import green from '@material-ui/core/colors/green';
 import { useState, Fragment } from 'react';
 
-const PackageInclusion = [
-    {
-        inclusionType: "Included",
-        details: [
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-        ]
-    },
-    {
-        inclusionType: "Excluded",
-        details: [
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-
-        ]
-    }
-]
-
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         includeIcon: {
@@ -57,15 +31,16 @@ const useStyles = makeStyles((theme: Theme) =>
         }
     }))
 
-const PackageInclusionAccordion = ({ PackageInclusion, classes, expanded, handleChange }: any) => {
+const PackageInclusionAccordion = ({ packageInclusion, classes, expanded, handleChange }: any) => {
     return (
         <Fragment>
             {
-                PackageInclusion.map((packageDetails: any, packageIdx: number) => (
+                packageInclusion.map((packageDetails: any, packageIdx: number) => (
                     <Accordion
                         expanded={expanded === `panel${packageIdx}`}
                         onChange={handleChange(`panel${packageIdx}`)}
                         elevation={0}
+                        key={packageIdx}
                     >
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
@@ -106,14 +81,19 @@ const PackageInclusionAccordion = ({ PackageInclusion, classes, expanded, handle
     )
 }
 
-export default () => {
+export default ({ packageInclusion }: any) => {
     const [expanded, setExpanded] = useState<string | false>(false);
     const classes = useStyles();
     const handleChange = (panel: string) => (_: React.ChangeEvent<{}>, isExpanded: boolean) => {
         setExpanded(isExpanded ? panel : false);
     };
     return (
-        <Box px={1} boxShadow={0} py={4}>
+        <Box
+            px={1}
+            boxShadow={0}
+            py={4}
+            id={"packageInclusion"}
+        >
             <Grid container spacing={4}>
                 <Grid item xs={12} className={classes.customDarkBackground}>
                     <Box my={5}>
@@ -129,7 +109,7 @@ export default () => {
                     <PackageInclusionAccordion
                         classes={classes}
                         expanded={expanded}
-                        PackageInclusion={PackageInclusion}
+                        packageInclusion={packageInclusion}
                         handleChange={handleChange}
                     />
                 </Grid>

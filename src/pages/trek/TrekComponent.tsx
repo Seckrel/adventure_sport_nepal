@@ -1,25 +1,27 @@
 import LandingShowCase from "../../recycle/LandingShowCase";
-import HookInfoText from "./components/HookInfoText";
-import PackageInfoNavigation from "./components/PackageInfoNavigation";
+import HookInfoText from "../../recycle/expeditionTemplate/HookInfoText";
+import PackageInfoNavigation from "../../recycle/expeditionTemplate/PackageInfoNavigation";
 import { Fragment } from "react";
-import TrekInfo from "./components/TrekInfo";
-import Gallery from "./components/Gallary";
-import PricingInfo from "./components/PricingInfo";
-import ItineraryInfo from "./components/ItineraryInfo";
-import PackageInclusion from "./components/PackageInclusion";
-import CancellationDetails from "./components/CancellationDetails";
+import ExpeditionInfo from "../../recycle/expeditionTemplate/ExpeditionInfo";
+import Gallery from "../../recycle/expeditionTemplate/Gallary";
+import PricingInfo from "../../recycle/expeditionTemplate/PricingInfo";
+import ItineraryInfo from "../../recycle/expeditionTemplate/ItineraryInfo";
+import PackageInclusion from "../../recycle/expeditionTemplate/PackageInclusion";
+import CancellationDetails from "../../recycle/expeditionTemplate/CancellationDetails";
+import { ExpeditionObject } from "../../recycle/ExpeditionObject";
+
 
 export default function TrekExpedition() {
     return (
         <Fragment>
             <LandingShowCase />
-            <HookInfoText />
+            <HookInfoText hookInfo={ExpeditionObject.hookInfo} />
             <PackageInfoNavigation />
-            <TrekInfo />
+            <ExpeditionInfo expeditionInfo={ExpeditionObject.expeditionInfo} />
             {/* <Gallery /> */}
-            <PricingInfo />
-            <ItineraryInfo />
-            <PackageInclusion />
+            <PricingInfo pricingInfo={ExpeditionObject.pricingInfo} />
+            <ItineraryInfo itineraryInfo={ExpeditionObject.itinerayInfo} />
+            <PackageInclusion packageInclusion={ExpeditionObject.packageInclusion} />
             <CancellationDetails />
         </Fragment>
     );
