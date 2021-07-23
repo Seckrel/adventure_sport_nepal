@@ -24,8 +24,6 @@ interface Props {
 function ElevationScroll(props: Props) {
     const { children, trigger } = props;
 
-    // console.log(trigger);
-
     return cloneElement(children, {
         elevation: trigger ? 4 : 0,
     });
