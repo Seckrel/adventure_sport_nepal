@@ -30,14 +30,14 @@ const CustomBoxItem = ({ content }: any) => (
     </Box>
 )
 
-export default function PricingInfo() {
+export default function PricingInfo({ pricingInfo }: any) {
     const classes = useStyles();
     return (
         <Box
             px={2}
             py={5}
-            // style={{ backgroundColor: '#1e1e1e' }}
             className={classes.customDarkBackground}
+            id={"pricingInfo"}
         >
             <Grid container>
                 <Grid
@@ -56,20 +56,19 @@ export default function PricingInfo() {
                                     <CustomBoxItem content={"Date available"} />
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <CustomBoxItem content={"2021/11/1"} />
+                                    <CustomBoxItem content={pricingInfo.dateAvailable} />
                                 </Grid>
                                 <Grid item xs={6} className={classes.customBoxItem}>
                                     <CustomBoxItem content={"Price"} />
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <CustomBoxItem content={"$ 1500"} />
+                                    <CustomBoxItem content={pricingInfo.price} />
                                 </Grid>
                             </Grid>
                         </Box>
                     </Paper>
                 </Grid>
             </Grid>
-
         </Box>
     )
 }

@@ -37,42 +37,42 @@ const TabNavItem = () => {
             <Grid item xs={6} sm={4}>
                 <CustomIconButton
                     accentColor={accentColor}
-                    onClick={""}
+                    onClickMethod={() => window.location.href="#expeditionInfo"}
                     Icon={InfoIcon}
                 />
             </Grid>
             <Grid item xs={6} sm={4}>
                 <CustomIconButton
                     accentColor={accentColor}
-                    onClick={""}
+                    onClickMethod={() => window.location.href="#pricingInfo"}
                     Icon={PanoramaIcon}
                 />
             </Grid>
             <Grid item xs={6} sm={4}>
                 <CustomIconButton
                     accentColor={accentColor}
-                    onClick={""}
+                    onClickMethod={() => window.location.href="#pricingInfo"}
                     Icon={AttachMoneyIcon}
                 />
             </Grid>
             <Grid item xs={6} sm={4}>
                 <CustomIconButton
                     accentColor={accentColor}
-                    onClick={""}
+                    onClickMethod={() => window.location.href="#itineraryInfo"}
                     Icon={TransferWithinAStationIcon}
                 />
             </Grid>
             <Grid item xs={6} sm={4}>
                 <CustomIconButton
                     accentColor={accentColor}
-                    onClick={""}
+                    onClickMethod={() => window.location.href="#packageInclusion"}
                     Icon={CheckCircleOutlineIcon}
                 />
             </Grid>
             <Grid item xs={6} sm={4}>
                 <CustomIconButton
                     accentColor={accentColor}
-                    onClick={""}
+                    onClickMethod={() => window.location.href="#cancellationDetails"}
                     Icon={HighlightOffIcon}
                 />
             </Grid>

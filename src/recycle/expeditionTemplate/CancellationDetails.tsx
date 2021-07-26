@@ -35,10 +35,15 @@ const InfoContent = () => {
     )
 }
 
-export default () => {
+export default function CancellationDetails() {
     const classes = useStyles();
     return (
-        <Box px={2} py={5} className={classes.customDarkBackground}>
+        <Box
+            px={2}
+            py={5}
+            className={classes.customDarkBackground}
+            id={"cancellationDetails"}
+        >
             <Grid container spacing={4}>
                 <Grid item xs={12}>
                     <Box my={5}>
@@ -46,7 +51,7 @@ export default () => {
                             variant={'h4'}
                             component={'div'}
                         >
-                            What is Included in the Package?
+                            Cancellation Details
                         </Typography>
                     </Box>
                 </Grid>

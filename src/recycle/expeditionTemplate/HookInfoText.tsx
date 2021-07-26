@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
         }
     }))
 
-export default function HookInfoText() {
+export default function HookInfoText({ hookInfo }: any) {
     const classes = useStyles();
 
     return (
@@ -23,6 +23,7 @@ export default function HookInfoText() {
             px={{ xs: 5, md: 8, lg: 20, xl: 30 }}
             py={{ xs: 5, md: 8, lg: 15 }}
             className={classes.boxRoot}
+            id={"hookInfo"}
         >
             <Grid container spacing={5}>
                 <Grid item xs={12}>
@@ -31,8 +32,7 @@ export default function HookInfoText() {
                         component={'div'}
                         className={classes.typography}
                     >
-                        <span>Everest Trek</span><br />
-                        <span>Camp trek</span><br />
+                        <span>{hookInfo.title}</span><br />
                     </Typography>
                 </Grid>
                 <Grid item xs={12}>
@@ -41,10 +41,7 @@ export default function HookInfoText() {
                         component={'p'}
                         className={classes.typography}
                     >
-                        The trek to Everest Base Camp is the most famous multi-day adventure hike in the world for a reason.
-                        Taking you into the heart of the Himalayas, the route winds its way up to 5,643m above sea level,
-                        offering you unparalleled views of the world’s highest mountain. Along the way, you’ll be immersed in
-                        Sherpa culture, soaking up the sounds and sights of the Khumbu region, and creating memories that will last a lifetime
+                       {hookInfo.text}
                     </Typography>
                 </Grid>
             </Grid>
