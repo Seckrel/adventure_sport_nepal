@@ -23,7 +23,17 @@ const useStyles = makeStyles((theme) => ({
         position: "relative",
         left: "50%",
         transform: "translateX(-50%)",
-    }
+    },
+    typographyHeadingStyle: {
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "0.90rem"
+        },
+    },
+    typographyBodyStyle: {
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "0.70rem"
+        },
+    },
 }));
 
 export default function ItineraryInfo({ itineraryInfo }: any) {
@@ -31,7 +41,6 @@ export default function ItineraryInfo({ itineraryInfo }: any) {
 
     return (
 
-        // Font size for mobile view needs to be worked on.
         <Box
             id={"itineraryInfo"}
             className={classes.boxStyle}
@@ -56,13 +65,23 @@ export default function ItineraryInfo({ itineraryInfo }: any) {
                         </TimelineSeparator>
                         <TimelineContent>
                             <Paper elevation={3} className={classes.paper}>
-                                <Typography variant="h6" component="h1">
+                                <Typography
+                                    variant="h6"
+                                    component="div"
+                                    className={classes.typographyHeadingStyle}
+                                >
                                     Day {item.start} {
                                         item.start === item.end
                                             ? null : (" - " + item.end)
                                     }
                                 </Typography>
-                                <Typography>{item.detail}</Typography>
+                                <Typography
+                                    variant="body1"
+                                    component="p"
+                                    className={classes.typographyBodyStyle}
+                                >
+                                    {item.detail}
+                                </Typography>
                             </Paper>
                         </TimelineContent>
                     </TimelineItem>
