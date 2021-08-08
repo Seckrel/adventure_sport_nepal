@@ -19,23 +19,23 @@ export const ExpeditionObject = {
         {
             start: '1',
             end: '1',
-            detail: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+            detail: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
         },
         {
             start: '2',
             end: '5',
-            detail: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+            detail: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
         },
 
         {
-            start: '1',
-            end: '5',
-            detail: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+            start: '6',
+            end: '6',
+            detail: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
         },
         {
-            start: '1',
-            end: '5',
-            detail: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+            start: '7',
+            end: '10',
+            detail: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
         }
     ],
     packageInclusion: [

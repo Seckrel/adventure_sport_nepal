@@ -1,66 +1,73 @@
-import {
-    Box,
-    Accordion,
-    AccordionSummary,
-    Typography,
-    AccordionDetails,
-} from '@material-ui/core';
-import { useState } from 'react';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Timeline from '@material-ui/lab/Timeline';
+import TimelineItem from '@material-ui/lab/TimelineItem';
+import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
+import TimelineConnector from '@material-ui/lab/TimelineConnector';
+import TimelineContent from '@material-ui/lab/TimelineContent';
+import TimelineDot from '@material-ui/lab/TimelineDot';
+import HotelIcon from '@material-ui/icons/Hotel';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import { Box } from '@material-ui/core';
 
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        accordionDetails: {
-            backgroundColor: theme.palette.grey.A200,
-            color: theme.palette.primary.contrastText,
-            borderRadius: "4px",
-        }
-    }))
+const useStyles = makeStyles((theme) => ({
+    paper: {
+        padding: '6px 16px',
+    },
+    secondaryTail: {
+        backgroundColor: theme.palette.secondary.main,
+    },
+    boxStyle: {
+        maxWidth: "700px",
+        position: "relative",
+        left: "50%",
+        transform: "translateX(-50%)",
+    }
+}));
 
 export default function ItineraryInfo({ itineraryInfo }: any) {
-    const [expanded, setExpanded] = useState<string | false>(false);
     const classes = useStyles();
-    const handleChange = (panel: string) => (_: React.ChangeEvent<{}>, isExpanded: boolean) => {
-        setExpanded(isExpanded ? panel : false);
-    };
 
     return (
+
+        // Font size for mobile view needs to be worked on.
         <Box
-            px={1}
-            boxShadow={0}
             id={"itineraryInfo"}
+            className={classes.boxStyle}
         >
-            {itineraryInfo.map((item: any, idx: number) => (
-                <Accordion
-                    expanded={expanded === `panel${idx}`}
-                    onChange={handleChange(`panel${idx}`)}
-                    elevation={0}
-                >
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls={`panel${idx}bh-content`}
-                        id={`panel${idx}bh-header`}
-                    >
-                        <Typography variant="h5" component={"div"}>
-                            Day {item.start} {
-                                item.start === item.end
-                                    ? null : (" - " + item.end)
+            <Timeline align="alternate">
+                {itineraryInfo.map((item: any, idx: number) => (
+                    <TimelineItem key={idx}>
+                        <TimelineSeparator>
+                            <TimelineDot
+                                variant="outlined"
+                                color={
+                                    idx % 2 === 0
+                                        ? "primary" : "secondary"
+                                }
+                            >
+                                <HotelIcon />
+                            </TimelineDot>
+                            {
+                                idx === (itineraryInfo.length - 1)
+                                    ? null : <TimelineConnector />
                             }
-                        </Typography>
-                    </AccordionSummary>
-                    <Box boxShadow={5}>
-                        <AccordionDetails
-                            className={classes.accordionDetails}
-                        >
-                            <Typography variant={"body1"} component={'div'}>
-                                {item.detail}
-                            </Typography>
-                        </AccordionDetails>
-                    </Box>
-                </Accordion>
-            ))
-            }
-        </Box >
+                        </TimelineSeparator>
+                        <TimelineContent>
+                            <Paper elevation={3} className={classes.paper}>
+                                <Typography variant="h6" component="h1">
+                                    Day {item.start} {
+                                        item.start === item.end
+                                            ? null : (" - " + item.end)
+                                    }
+                                </Typography>
+                                <Typography>{item.detail}</Typography>
+                            </Paper>
+                        </TimelineContent>
+                    </TimelineItem>
+                ))}
+            </Timeline>
+        </Box>
     );
 }
