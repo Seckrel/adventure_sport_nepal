@@ -1,7 +1,6 @@
 import {
     createTheme,
     ThemeProvider,
-    SimplePaletteColorOptions
 } from "@material-ui/core/styles";
 import { useMemo } from 'react';
 import Header from './header/HeaderComponent';
